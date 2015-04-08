@@ -1,0 +1,45 @@
+CREATE TABLE student (
+	cwid INT(9) NOT NULL,
+	first_name VARCHAR(24) NOT NULL,
+	last_name VARCHAR(30) NOT NULL,
+	DOB DATE,
+	PRIMARY KEY (cwid),
+);
+
+CREATE TABLE course_score(
+	cwid INT UNSIGNED NOT NULL,
+	 attendence_score FLOAT NOT NULL,
+	  term_score FLOAT NOT NULL,
+	   midterm_score FLOAT NOT NULL,
+	    final_score FLOAT NOT NULL,
+	PRIMARY KEY(cwid),
+	
+	FOREIGN KEY(cwid)
+		REFERENCES student(cwid)
+);
+
+CREATE TABLE homework_score(
+	id INT UNSIGNED AUTO_INCREMENT,
+	 cwid INT UNSIGNED NOT NULL,
+	  score FLOAT NOT NULL,
+	   hw_date DATE NOT NULL,
+	
+	PRIMARY KEY(id, cwid),
+	
+	FOREIGN KEY(cwid)
+	REFERENCES student(cwid)
+);
+
+insert into student (cwid,first_name,last_name) values (899326458,"David","Pedroza");
+
+insert into student (cwid,first_name,last_name) values (429235451,"Alyssa","Peterson");
+
+insert into student (cwid,first_name,last_name) values (422635451,"Linda","Keal");
+
+
+insert into course_score (student_cwid,attendance_score,term_project_score,midterm_score, final_score) 
+				  values (899326458,30.8,89.73,80.21, 83.5);
+
+INSERT into homework_score(score, hw_date)
+		             value(90.62,2015-02-14);
+

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#hw1 {
+	display:none;
+	height: 350px;
+	overflow: auto;
+}
+
+#students_list{
+	height: 200px;
+	overflow: auto;
+}
